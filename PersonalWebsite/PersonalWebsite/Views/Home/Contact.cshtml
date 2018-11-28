@@ -1,9 +1,48 @@
 ﻿@{
     ViewData["Title"] = "Contact";
 }
+<head>
+	<link rel="stylesheet" type="text/css" href="StyleSheet.css">
+</head>
+<body>
 <h2>@ViewData["Title"]</h2>
 <h3>@ViewData["Message"]</h3>
 
+<div class="form">
+	<div style="text-align: justify">
+		<form action="contact_form.php">
+
+			<div>
+				<label for="fname">First Name</label>
+				<input type="text" id="fname" name="firstname" placeholder="Your first name..">
+			</div>
+			<br />
+			<div>
+				<label for="lname">Last Name</label>
+				<input type="text" id="lname" name="lastname" placeholder="Your last name..">
+			</div>
+			<br />
+			<div>
+				<label for="country">Country</label>
+				<select id="country" name="country">
+					<option value="uk">UK</option>
+					<option value="australia">Australia</option>
+					<option value="usa">USA</option>
+				</select>
+			</div>
+			<br />
+			<div>
+				<label for="subject">Subject</label>
+				<textarea id="subject" name="subject" placeholder="Write something.." style="height:200px"></textarea>
+				<input type="submit" value="Submit">
+			</div>
+		</form>
+		
+		</div>
+</div>
+<br/>
+<br/>
 <address>
-    <strong>Github:</strong> <a href="https://github.com/RyanThomas1214">https://github.com/RyanThomas1214</a><br />
+	<strong>Github:</strong> <a href="https://github.com/RyanThomas1214">https://github.com/RyanThomas1214</a><br />
 </address>
+</body>

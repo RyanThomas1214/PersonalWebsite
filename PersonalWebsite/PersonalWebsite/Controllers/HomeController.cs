@@ -17,14 +17,14 @@ namespace PersonalWebsite.Controllers
 
 		public IActionResult About()
 		{
-			ViewData["Message"] = "Your blog page.";
+			ViewData["Message"] = "Blog page.";
 
 			return View();
 		}
 
 		public IActionResult Contact()
 		{
-			ViewData["Message"] = "Your contact page.";
+			ViewData["Message"] = "Contact page.";
 
 			return View();
 		}
