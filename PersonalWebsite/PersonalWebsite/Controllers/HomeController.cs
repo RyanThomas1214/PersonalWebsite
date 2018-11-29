@@ -15,6 +15,13 @@ namespace PersonalWebsite.Controllers
 			return View();
 		}
 
+		public IActionResult Countdown()
+		{
+			ViewData["Message"] = "Countdown";
+
+			return View();
+		}
+
 		public IActionResult About()
 		{
 			ViewData["Message"] = "Blog page.";
@@ -22,11 +29,28 @@ namespace PersonalWebsite.Controllers
 			return View();
 		}
 
+		[HttpGet]
+		public IActionResult FormSuccess(Person person)
+		{
+
+			return View(person);
+		}
+
+
+		[HttpGet]
 		public IActionResult Contact()
 		{
-			ViewData["Message"] = "Contact page.";
+			ViewData["Message"] = "Your contact page.";
 
 			return View();
+		}
+
+		[HttpPost]
+		public IActionResult SubmitForm(Person person)
+		{
+			ViewData["Name"] = person.Name;
+
+			return RedirectToAction("Contact", person);
 		}
 
 		public IActionResult Privacy()
@@ -39,5 +63,10 @@ namespace PersonalWebsite.Controllers
 		{
 			return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
 		}
+	}
+	public class Person
+	{
+		public string Name { get; set; }
+		public string Email { get; set; }
 	}
 }
