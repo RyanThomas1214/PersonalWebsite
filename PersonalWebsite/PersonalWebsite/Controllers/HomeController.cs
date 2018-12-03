@@ -14,13 +14,7 @@ namespace PersonalWebsite.Controllers
 		{
 			return View();
 		}
-
-		public IActionResult Countdown()
-		{
-			ViewData["Message"] = "Countdown";
-
-			return View();
-		}
+		
 
 		public IActionResult About()
 		{

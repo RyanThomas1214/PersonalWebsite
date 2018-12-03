@@ -1,48 +1,50 @@
 ﻿@{
     ViewData["Title"] = "Contact";
 }
-<head>
-	<link rel="stylesheet" type="text/css" href="StyleSheet.css">
-</head>
+
 <body>
-<h2>@ViewData["Title"]</h2>
-<h3>@ViewData["Message"]</h3>
+	@model PersonalWebsite.Controllers.Person
 
-<div class="form">
-	<div style="text-align: justify">
-		<form action="contact_form.php">
+	<h2>@ViewData["Title"]</h2>
+	<h3>@ViewData["Message"]</h3>
 
-			<div>
-				<label for="fname">First Name</label>
-				<input type="text" id="fname" name="firstname" placeholder="Your first name..">
-			</div>
+	<div class="container">
+		<form action="contact_form.php" method="post">
+			<label for="fname">First Name</label>
+			<input type="text" id="fname" name="firstname" placeholder="Your first name..">
 			<br />
-			<div>
-				<label for="lname">Last Name</label>
-				<input type="text" id="lname" name="lastname" placeholder="Your last name..">
-			</div>
+			<label for="lname">Last Name</label>
+			<input type="text" id="lname" name="lastname" placeholder="Your last name..">
 			<br />
-			<div>
-				<label for="country">Country</label>
-				<select id="country" name="country">
-					<option value="uk">UK</option>
-					<option value="australia">Australia</option>
-					<option value="usa">USA</option>
-				</select>
-			</div>
+			<label for="country">Country</label>
+			<select id="country" name="country">
+				<option value="uk">UK</option>
+				<option value="australia">Australia</option>
+				<option value="usa">USA</option>
+			</select>
 			<br />
-			<div>
-				<label for="subject">Subject</label>
-				<textarea id="subject" name="subject" placeholder="Write something.." style="height:200px"></textarea>
-				<input type="submit" value="Submit">
-			</div>
+			<label for="subject">Subject</label>
+			<textarea id="subject" name="subject" placeholder="Write something.." style="height:200px"></textarea>
+			<input type="submit" value="Submit">
 		</form>
-		
-		</div>
-</div>
-<br/>
-<br/>
+	</div>
+	<br />
+	<br />
 <address>
 	<strong>Github:</strong> <a href="https://github.com/RyanThomas1214">https://github.com/RyanThomas1214</a><br />
 </address>
+
+	
+
+@using(Html.BeginForm("SubmitForm", "Home"))
+	{
+	@Html.LabelFor(model => model.Name, "Enter Name", new {@class="form-label", id="namelabel"} )
+	@Html.TextBoxFor(Model => Model.Name)
+
+	@Html.LabelFor(model => model.Email, "Enter Email")
+	@Html.TextBoxFor(Model => Model.Email)
+
+	<input type="submit" value="Submit">
+	}
+
 </body>
